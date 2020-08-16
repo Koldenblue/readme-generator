@@ -35,14 +35,18 @@ const questions = [
         name: "test"
     },
     {
-        message: "Where can questions or issues be directed?",
-        name: "questions"
+        message: "What is your GitHub username, where questions can be directed to?",
+        name: "username"
+    },
+    {
+        message: "What is your email address to which questions can be directed?",
+        name: "email"
     }
 ];
 
 function checkError(error) {
     if (error) {
-        console.log(error);
+        console.log(error + " was the error");
         throw error;
     }
     else {
@@ -52,16 +56,21 @@ function checkError(error) {
 
 // function to write README file
 function writeToFile(fileName, data) {
-    readmeString = "";
-    readmeString += "# " + data.title + "\n\n";
-    readmeString += "## Description\n" + data.description + "\n\n";
-    readmeString += "## Installation\n" + data.installation + "\n\n";
-    readmeString += "## Usage\n" + data.usage + "\n\n";
-    readmeString += "## Contributing\n" + data.contributions + "\n\n";
-    readmeString += "## License\n" + data.license + "\n\n";
-    readmeString += "## Tests\n" + data.test + "\n\n";
-    readmeString += "## Issues and Questions\n" + data.questions;
+    readmeString = ""
+    + "# " + data.title + "\n\n"
+    + "## Table of Contents\n"
+    + "\n\n"
+    + "### Description\n" + data.description + "\n\n"
+    + "### Installation\n" + data.installation + "\n\n"
+    + "### Usage\n" + data.usage + "\n\n"
+    + "### Contributing\n" + data.contributions + "\n\n"
+    + "### License\n" + data.license + "\n\n"
+    + "### Tests\n" + data.test + "\n\n"
+    + "### Issues and Questions\n"
+    + `Issues and questions can be directed to ${data.email}. `
+    + `The author's GitHub profile may be found at https://github.com/${data.username}.`;
 
+    // kmillergit@outlook.com
     fs.writeFile(fileName, readmeString, error => checkError(error));
  
     // fs.writeFile(fileName, JSON.stringify(data) + "\n", function(error) {
@@ -81,7 +90,7 @@ function init() {
                 writeToFile("new-readme.md", answers);
             }
             catch (error) {
-                console.log(error + "error")
+                console.log(error + "error was caught")
             }
         });
 }
