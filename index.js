@@ -59,8 +59,9 @@ function writeToFile(fileName, data) {
     readmeString = ""
     + "# " + data.title + "\n\n"
     + "## Table of Contents\n"
-    + "\n\n"
-    + "### Description\n" + data.description + "\n\n"
+    + `\n\n1.<a href="#description>Description</a>\n2.${data.installation}\n3.${data.usage}\n4.${data.contributions}\n`
+    + `5.${data.license}\n6.${data.test}\n7.${data.email}`
+    + "<h3 id='description'>Description</h3>\n" + data.description + "\n\n"
     + "### Installation\n" + data.installation + "\n\n"
     + "### Usage\n" + data.usage + "\n\n"
     + "### Contributing\n" + data.contributions + "\n\n"
@@ -87,7 +88,7 @@ function init() {
         .then(answers => {
             console.log(answers)
             try {
-                writeToFile("new-readme.md", answers);
+                writeToFile("README.md", answers);
             }
             catch (error) {
                 console.log(error + "error was caught")
