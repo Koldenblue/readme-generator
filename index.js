@@ -40,14 +40,36 @@ const questions = [
     }
 ];
 
+function checkError(error) {
+    if (error) {
+        console.log(error);
+        throw error;
+    }
+    else {
+        console.log("success");
+    }
+}
+
 // function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, JSON.stringify(data) + "\n", function(error) {
-        if (error) {
-            return console.log(error);
-        }
-    })
-    console.log("success");
+    readmeString = "";
+    readmeString += "# " + data.title + "\n\n";
+    readmeString += "## Description\n" + data.description + "\n\n";
+    readmeString += "## Installation\n" + data.installation + "\n\n";
+    readmeString += "## Usage\n" + data.usage + "\n\n";
+    readmeString += "## Contributing\n" + data.contributions + "\n\n";
+    readmeString += "## License\n" + data.license + "\n\n";
+    readmeString += "## Tests\n" + data.test + "\n\n";
+    readmeString += "## Issues and Questions\n" + data.questions;
+
+    fs.writeFile(fileName, readmeString, error => checkError(error));
+ 
+    // fs.writeFile(fileName, JSON.stringify(data) + "\n", function(error) {
+    //     if (error) {
+    //         return console.log(error);
+    //     }
+    // })
+    // console.log("success");
 }
 
 // function to initialize program
@@ -55,7 +77,12 @@ function init() {
     inquirer.prompt(questions)
         .then(answers => {
             console.log(answers)
-            writeToFile("new-readme.md", answers);
+            try {
+                writeToFile("new-readme.md", answers);
+            }
+            catch (error) {
+                console.log(error + "error")
+            }
         });
 }
 
