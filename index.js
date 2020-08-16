@@ -1,23 +1,8 @@
 const inquirer = require("inquirer");
+const fs = require("fs");
 
 // array of questions for user
 const questions = [
-
-];
-
-// function to write README file
-function writeToFile(fileName, data) {
-}
-
-// function to initialize program
-function init() {
-
-}
-
-// function call to initialize program
-init();
-
-inquirer.prompt([
     {
         message: "What is the project title?",
         name: "title"
@@ -50,10 +35,30 @@ inquirer.prompt([
         name: "test"
     },
     {
-        message: "How can issues be reported?",
-        name: "issues"
+        message: "Where can questions or issues be directed?",
+        name: "questions"
     }
+];
 
-]).then(answers => {
-    console.log(answers)
-})
+// function to write README file
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, JSON.stringify(data) + "\n", function(error) {
+        if (error) {
+            return console.log(error);
+        }
+    })
+    console.log("success");
+}
+
+// function to initialize program
+function init() {
+    inquirer.prompt(questions)
+        .then(answers => {
+            console.log(answers)
+            writeToFile("new-readme.md", answers);
+        });
+}
+
+// function call to initialize program
+init();
+
