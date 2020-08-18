@@ -1,5 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
+const markdown = require("./generateMarkdown.js")
 
 // array of questions for user
 const questions = [
@@ -44,58 +45,55 @@ const questions = [
     }
 ];
 
+// this function checkError is redundant with the catch function below
+// because the catch will already catch any errors from the writeToFile
+
 function checkError(error) {
+    // throw new Error ("OH NO"); // will not be caught
     if (error) {
         console.log(error + " was the error");
-        throw error;
     }
     else {
         console.log("success");
     }
 }
 
+
 // function to write README file
 function writeToFile(fileName, data) {
-    readmeString = ""
-    + "# " + data.title + "\n\n"
-    + "## Table of Contents\n"
-    + `\n\n1.<a href="#description">Description</a>\n2.${data.installation}\n3.${data.usage}\n4.${data.contributions}\n`
-    + `5.${data.license}\n6.${data.test}\n7.${data.email}`
-    + "<h3 id='description'>Description</h3>\n" + data.description + "\n\n"
-    + "### Installation\n" + data.installation + "\n\n"
-    + "### Usage\n" + data.usage + "\n\n"
-    + "### Contributing\n" + data.contributions + "\n\n"
-    + "### License\n" + data.license + "\n\n"
-    + "### Tests\n" + data.test + "\n\n"
-    + "### Issues and Questions\n"
-    + `Issues and questions can be directed to ${data.email}. `
-    + `The author's GitHub profile may be found at https://github.com/${data.username}.`;
 
+    let readmeString = markdown.generateMarkdown(data);
     // email@outlook.com
     fs.writeFile(fileName, readmeString, error => checkError(error));
- 
+    // throw new Error ("OH NO");  // will be caught
+}
+
+
+// function to initialize program
+function init() {
+    inquirer.prompt(questions).then(answers => {
+        console.log(answers)
+        try {
+            writeToFile("README.md", answers);
+        }
+        catch (error) {
+            // checkError(error) => this function is redundant with the catch!
+            console.log(error + " error was caught")
+        }
+    });
+}
+
+// function call to initialize program
+init();
+
+
+
+
+
+    // Alternate way of error handling
     // fs.writeFile(fileName, JSON.stringify(data) + "\n", function(error) {
     //     if (error) {
     //         return console.log(error);
     //     }
     // })
     // console.log("success");
-}
-
-// function to initialize program
-function init() {
-    inquirer.prompt(questions)
-        .then(answers => {
-            console.log(answers)
-            try {
-                writeToFile("README.md", answers);
-            }
-            catch (error) {
-                console.log(error + "error was caught")
-            }
-        });
-}
-
-// function call to initialize program
-init();
-
