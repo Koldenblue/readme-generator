@@ -2,13 +2,13 @@
 function generateMarkdown(data) {
   return "# " + data.title + "\n\n"
     + "## Table of Contents\n"
-    + `\n1.<a href="#description">Description</a>\n`
-    + `\n<a href="#installation">Installation</a>\n` 
-    + `\n<a href="#usage">Usage</a>\n`
-    + `\n<a href="#contributions">Contributions</a>\n`
-    + `\n<a href="#license">License</a>\n`
-    + `\n<a href="#test">Tests</a>\n`
-    + `\n<a href="#questions">Issues and Questions</a>\n\n`
+    + `\n1. <a href="#description">Description</a>`
+    + `\n2. <a href="#installation">Installation</a>`
+    + `\n3. <a href="#usage">Usage</a>`
+    + `\n4. <a href="#contributions">Contributions</a>`
+    + `\n5. <a href="#license">License</a>`
+    + `\n6. <a href="#test">Tests</a>`
+    + `\n7. <a href="#questions">Issues and Questions</a>\n`
 
     + "<h3 id='description'>Description</h3>\n" + data.description + "\n\n"
     + "<h3 id='installation'>Installation\n" + data.installation + "\n\n"
@@ -25,7 +25,9 @@ module.exports = {
   generateMarkdown
 };
 
-// Can also do:
+
+
+// Alternate syntax for exporting:
 /*
 export default {
   generateMarkdown

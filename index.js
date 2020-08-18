@@ -1,57 +1,15 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const markdown = require("./generateMarkdown.js")
-
-// array of questions for user
-const questions = [
-    {
-        message: "What is the project title?",
-        name: "title"
-    },
-    {
-        message: "What is the project description?",
-        name: "description"
-    },
-    {
-        message: "What are the installation instructions?",
-        name: "installation"
-    },
-    {
-        message: "How do you use the program / what is the usage?",
-        name: "usage"
-    },
-    {
-        message: "How can contributions be made to the program?",
-        name: "contributions"
-    },
-    {
-        type: "list",
-        message: "What is the program license? These are sorted from most to least permissive.",
-        name: "license",
-        choices: ["MIT", "Apache License 2.0", "Mozilla Public License",
-            "ISC", "GNU LGPLv3", "GNU GPLv3", "GNU AGPLv3"]
-    },
-    {
-        message: "How can the program be tested?",
-        name: "test"
-    },
-    {
-        message: "What is your GitHub username, where questions can be directed to?",
-        name: "username"
-    },
-    {
-        message: "What is your email address to which questions can be directed?",
-        name: "email"
-    }
-];
+const markdown = require("./generateMarkdown.js");
+const questions = require("./questions");
 
 // this function checkError is redundant with the catch function below
 // because the catch will already catch any errors from the writeToFile
 
 function checkError(error) {
-    // throw new Error ("OH NO"); // will not be caught
+    // throw new Error ("OH NO"); 
     if (error) {
-        console.log(error + " was the error");
+        console.log(error + " was the writeFile error");
     }
     else {
         console.log("success");
@@ -63,21 +21,30 @@ function checkError(error) {
 function writeToFile(fileName, data) {
 
     let readmeString = markdown.generateMarkdown(data);
-    // email@outlook.com
-    fs.writeFile(fileName, readmeString, error => checkError(error));
-    // throw new Error ("OH NO");  // will be caught
+    try {
+        fs.writeFileSync(fileName, readmeString, function(error) {
+            checkError(error)
+        })
+    }
+    catch (error) {
+        console.log(error + " error was caught")
+    }
+
 }
 
 
 // function to initialize program
 function init() {
-    inquirer.prompt(questions).then(answers => {
+    inquirer.prompt(questions.questions).then(answers => {
         console.log(answers)
         try {
-            writeToFile("README.md", answers);
+            writeToFile(answers.fileName, answers);
         }
+        // I think the reason this catch won't catch the error from checkError is because of the asynchronous nature of writeFile.
+        // using writeFileSync won't call checkError, because there is no need for a callback.
+        // using the async writeFile will produce the thrown error, but it won't be caught here because this code
+        // runs BEFORE the error is thrown - asychnchronous!!!! In other words, the catch isn't part of the promise!!
         catch (error) {
-            // checkError(error) => this function is redundant with the catch!
             console.log(error + " error was caught")
         }
     });
