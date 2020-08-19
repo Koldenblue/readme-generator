@@ -19,12 +19,12 @@ function generateMarkdown(data) {
 
     + "<br>"
     + "<h3 id='description'>Description</h3>\n" + data.description + "\n\n"
-    + "<h3 id='installation'>Installation\n" + data.installation + "\n\n"
-    + "<h3 id='usage'>Usage\n" + data.usage + "\n\n"
-    + "<h3 id='contributions'>Contributions\n" + data.contributions + "\n\n"
-    + `<h3 id='license'>License\n` + `This project is licensed under the ${data.license}.\n\n`
-    + "<h3 id='test'>Tests\n" + data.test + "\n\n"
-    + "<h3 id='questions'>Issues and Questions\n"
+    + "<h3 id='installation'>Installation</h3>\n" + data.installation + "\n\n"
+    + "<h3 id='usage'>Usage</h3>\n" + data.usage + "\n\n"
+    + "<h3 id='contributions'>Contributions</h3>\n" + data.contributions + "\n\n"
+    + `<h3 id='license'>License</h3>\n` + `This project is licensed under the ${data.license}.\n\n`
+    + "<h3 id='test'>Tests</h3>\n" + data.test + "\n\n"
+    + "<h3 id='questions'>Issues and Questions</h3>\n"
     + `Issues and questions can be emailed to ${data.email}. `
     + `The author's GitHub profile may be found at https://github.com/${data.username}.`;
 }
