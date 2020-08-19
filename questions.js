@@ -4,7 +4,7 @@ const questions = [
         type: "list",
         message: "Choose a filename to write to.",
         name: "fileName",
-        choices: [ "dev-test.md", "README.md"]
+        choices: [ "dev-test-readme.md", "README.md"]
     },
     {
         message: "What is the project title?",
