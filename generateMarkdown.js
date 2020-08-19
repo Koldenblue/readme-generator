@@ -1,6 +1,11 @@
 // function to generate markdown for README
 function generateMarkdown(data) {
-  let badgeURL = `![image](https://img.shields.io/badge/license-${data.license}-green)`;
+  // First replace the spaces in the license name with '%20' for use in the url
+  let licenseForURL = data.license;
+  licenseForURL = removeSpaces(licenseForURL);
+  let badgeURL = `![image](https://img.shields.io/badge/license-${licenseForURL}-green)`;
+
+  // Generate the actual markdown:
   return "# " + data.title + "\n\n"
     + `${badgeURL}\n\n`
     + "## Table of Contents\n"
@@ -28,6 +33,20 @@ module.exports = {
   generateMarkdown
 };
 
+/** Removes spaces from a string and replaces them with "%20" for use in URLs */
+function removeSpaces(str) {
+  if (str === null) {
+      return;
+  }
+  str = str.trim();
+  for (let i = 0; i < str.length; i++)
+      if (str[i] === " ") {
+          var leftStr = str.slice(0, i);
+          var rightStr = str.slice(i + 1,);
+          str = leftStr + "%20" + rightStr;
+      }
+  return str;
+}
 
 
 // Alternate syntax for exporting:

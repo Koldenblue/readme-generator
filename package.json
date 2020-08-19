@@ -11,7 +11,7 @@
     "url": "git+https://github.com/Koldenblue/readme-generator.git"
   },
   "author": "Kevin Miller",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Koldenblue/readme-generator/issues"
   },
