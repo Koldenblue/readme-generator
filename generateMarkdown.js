@@ -17,7 +17,6 @@ function generateMarkdown(data) {
     + `\n6. <a href="#test">Tests</a>`
     + `\n7. <a href="#questions">Issues and Questions</a>\n`
 
-    + "<br>"
     + "<h3 id='description'>Description</h3>\n" + data.description + "\n\n"
     + "<h3 id='installation'>Installation</h3>\n" + data.installation + "\n\n"
     + "<h3 id='usage'>Usage</h3>\n" + data.usage + "\n\n"
