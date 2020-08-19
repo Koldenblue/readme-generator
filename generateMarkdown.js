@@ -25,7 +25,7 @@ function generateMarkdown(data) {
     + `<h3 id='license'>License\n` + `This project is licensed under the ${data.license}.\n\n`
     + "<h3 id='test'>Tests\n" + data.test + "\n\n"
     + "<h3 id='questions'>Issues and Questions\n"
-    + `Issues and questions can be directed to ${data.email}. `
+    + `Issues and questions can be emailed to ${data.email}. `
     + `The author's GitHub profile may be found at https://github.com/${data.username}.`;
 }
 
