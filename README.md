@@ -11,7 +11,7 @@
 5. <a href="#license">License</a>
 6. <a href="#test">Tests</a>
 7. <a href="#questions">Issues and Questions</a>
-<br><h3 id='description'>Description</h3>
+<h3 id='description'>Description</h3>
 A short program that quickly generates a readme based upon user input and a pre-defined template.
 
 <h3 id='installation'>Installation</h3>
