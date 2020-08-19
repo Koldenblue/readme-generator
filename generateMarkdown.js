@@ -1,6 +1,8 @@
 // function to generate markdown for README
 function generateMarkdown(data) {
+  let badgeURL = `https://img.shields.io/badge/license-${data.license}-green`;
   return "# " + data.title + "\n\n"
+    + `${badgeURL}\n\n`
     + "## Table of Contents\n"
     + `\n1. <a href="#description">Description</a>`
     + `\n2. <a href="#installation">Installation</a>`
@@ -14,7 +16,7 @@ function generateMarkdown(data) {
     + "<h3 id='installation'>Installation\n" + data.installation + "\n\n"
     + "<h3 id='usage'>Usage\n" + data.usage + "\n\n"
     + "<h3 id='contributions'>Contributions\n" + data.contributions + "\n\n"
-    + "<h3 id='license'>License\n" + data.license + "\n\n"
+    + `<h3 id='license'>License\n` + `This project is licensed under the ${data.license}.\n\n`
     + "<h3 id='test'>Tests\n" + data.test + "\n\n"
     + "<h3 id='questions'>Issues and Questions\n"
     + `Issues and questions can be directed to ${data.email}. `

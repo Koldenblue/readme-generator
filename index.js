@@ -23,7 +23,6 @@ function writeToFile(fileName, data) {
 /** function to initialize program */
 function init() {
     inquirer.prompt(questions.questions).then(answers => {
-        console.log(answers);
         // The following try / catch block will only catch errors from generateMarkdown(), and not the callback checkError().
         // Due to the asynchronous nature of the callback, callback will run after the try / catch block is already complete.
         try {

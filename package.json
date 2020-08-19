@@ -17,7 +17,6 @@
   },
   "homepage": "https://github.com/Koldenblue/readme-generator#readme",
   "dependencies": {
-    "axios": "^0.19.2",
     "inquirer": "^7.3.3"
   }
 }

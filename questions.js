@@ -28,10 +28,11 @@ const questions = [
     },
     {
         type: "list",
-        message: "What is the program license? These are sorted from most to least permissive.",
+        message: "What is the program license? These are sorted from most to least permissive. Create a license template in"
+            + " a GitHub repository by choosing 'Create New File' and naming the file 'License'.",
         name: "license",
-        choices: ["MIT", "Apache License 2.0", "Mozilla Public License",
-            "ISC", "GNU LGPLv3", "GNU GPLv3", "GNU AGPLv3"]
+        // These are most common. Other licenses include "Mozilla Public License", "ISC","GNU LGPLv3", "GNU AGPLv3", etc.
+        choices: ["MIT License", "Apache License 2.0", "GNU GPLv3 License"]
     },
     {
         message: "How can the program be tested?",
