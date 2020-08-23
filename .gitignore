@@ -2,6 +2,7 @@ Develop/**
 test/**
 .DS_Store/
 async-error-notes.js
+.vs/**
 
 # Logs
 logs
