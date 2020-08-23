@@ -12,7 +12,7 @@
 6. <a href="#test">Tests</a>
 7. <a href="#questions">Issues and Questions</a>
 <h3 id='description'>Description</h3>
-A short program that quickly generates a readme based upon user input and a pre-defined template. See https://www.youtube.com/watch?v=zGdBjkmN9NA for a quick demonstration video.
+A short program that quickly generates a readme based upon user input and a pre-defined template. See https://youtu.be/G-kk2_u-25k for a quick demonstration video.
 See dev-test-readme.md for a sample readme. This readme was also generated using this program.
 
 ![image](https://user-images.githubusercontent.com/64618290/90838156-f81b3e80-e308-11ea-9744-caac9d30ef29.png)
