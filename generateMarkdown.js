@@ -1,17 +1,27 @@
 // function to generate markdown for README
 function generateMarkdown(data) {
   // First replace the spaces in the license name with '%20' for use in the url
-  let licenseForURL = data.license;
-  licenseForURL = removeSpaces(licenseForURL);
+  let licenseForURL = removeSpaces(data.license);
   let badgeURL = `![image](https://img.shields.io/badge/license-${licenseForURL}-green)`;
 
   // Generate the actual markdown:
-  return "# " + data.title + "\n\n"
+  let readmeText = "";
+  let chapterNum = 1;
+
+  readmeText += "# " + data.title + "\n\n"
     + `${badgeURL}\n\n`
     + "## Table of Contents\n"
-    + `\n1. <a href="#description">Description</a>`
-    + `\n2. <a href="#installation">Installation</a>`
-    + `\n3. <a href="#usage">Usage</a>`
+  if (data.description !== "") {
+    readmeText += `\n${chapterNum}. <a href="#description">Description</a>`;
+    chapterNum++;
+  }
+
+  if (data.installation !== "") {
+    readmeText += `\n${chapterNum}. <a href="#installation">Installation</a>`;
+    chapterNum++;
+  }
+
+   readmeText += `\n3. <a href="#usage">Usage</a>`
     + `\n4. <a href="#contributions">Contributions</a>`
     + `\n5. <a href="#license">License</a>`
     + `\n6. <a href="#test">Tests</a>`
@@ -27,6 +37,8 @@ function generateMarkdown(data) {
     + `Issues and questions can be emailed to ${data.email}. `
     + `The author's GitHub profile may be found at https://github.com/${data.username}.`
     + `<sub><sup>This readme was generated with the help of the readme generator program at https://github.com/Koldenblue/readme-generator.</sup></sub>`;
+
+    return readmeText;
 }
 
 module.exports = {
