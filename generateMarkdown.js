@@ -25,7 +25,8 @@ function generateMarkdown(data) {
     + "<h3 id='test'>Tests</h3>\n" + data.test + "\n\n"
     + "<h3 id='questions'>Issues and Questions</h3>\n"
     + `Issues and questions can be emailed to ${data.email}. `
-    + `The author's GitHub profile may be found at https://github.com/${data.username}.`;
+    + `The author's GitHub profile may be found at https://github.com/${data.username}.`
+    + `<sub><sup>This readme was generated with the help of the readme generator program at https://github.com/Koldenblue/readme-generator.</sup></sub>`;
 }
 
 module.exports = {
