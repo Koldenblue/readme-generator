@@ -30,4 +30,5 @@ This project is licensed under the GNU GPLv3 License.
 Tests here
 
 <h3 id='questions'>Issues and Questions</h3>
-Issues and questions can be emailed to sample@email.domain. The author's GitHub profile may be found at https://github.com/My-GitHub-Username.<sub><sup>This readme was generated with the help of the readme generator program at https://github.com/Koldenblue/readme-generator.</sup></sub>
+Issues and questions can be emailed to sample@email.domain. The author's GitHub profile may be found at https://github.com/My-GitHub-Username.
+<p><sub><sup>This readme was generated with the help of the readme generator program at https://github.com/Koldenblue/readme-generator.</sup></sub></p>
