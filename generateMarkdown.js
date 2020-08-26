@@ -11,23 +11,30 @@ function generateMarkdown(data) {
   readmeText += "# " + data.title + "\n\n"
     + `${badgeURL}\n\n`
     + "## Table of Contents\n"
+  // Generate table of contents dynamically - if a section is blank, don't include it.
   if (data.description !== "") {
-    readmeText += `\n${chapterNum}. <a href="#description">Description</a>`;
-    chapterNum++;
+    readmeText += `\n${chapterNum++}. <a href="#description">Description</a>`;
   }
 
   if (data.installation !== "") {
-    readmeText += `\n${chapterNum}. <a href="#installation">Installation</a>`;
-    chapterNum++;
+    readmeText += `\n${chapterNum++}. <a href="#installation">Installation</a>`;
   }
 
-   readmeText += `\n3. <a href="#usage">Usage</a>`
-    + `\n4. <a href="#contributions">Contributions</a>`
-    + `\n5. <a href="#license">License</a>`
-    + `\n6. <a href="#test">Tests</a>`
-    + `\n7. <a href="#questions">Issues and Questions</a>\n`
+  if (data.usage !== "") {
+    readmeText += `\n${chapterNum++}. <a href="#usage">Usage</a>`;
+  }
 
-    + "<h3 id='description'>Description</h3>\n" + data.description + "\n\n"
+  if (data.contributions !== "") {
+    readmeText += `\n${chapterNum++}. <a href="#contributions">Contributions</a>`;
+  }
+
+  readmeText += `\n${chapterNum++}. <a href="#license">License</a>`;
+
+  data.test !== "" ? readmeText += `\n${chapterNum++}. <a href="#test">Tests</a>` : null;
+
+  readmeText += `\n${chapterNum}. <a href="#questions">Issues and Questions</a>\n`
+
+  readmeText += "<h3 id='description'>Description</h3>\n" + data.description + "\n\n"
     + "<h3 id='installation'>Installation</h3>\n" + data.installation + "\n\n"
     + "<h3 id='usage'>Usage</h3>\n" + data.usage + "\n\n"
     + "<h3 id='contributions'>Contributions</h3>\n" + data.contributions + "\n\n"
@@ -36,7 +43,7 @@ function generateMarkdown(data) {
     + "<h3 id='questions'>Issues and Questions</h3>\n"
     + `Issues and questions can be emailed to ${data.email}. `
     + `The author's GitHub profile may be found at https://github.com/${data.username}.`
-    + `<sub><sup>This readme was generated with the help of the readme generator program at https://github.com/Koldenblue/readme-generator.</sup></sub>`;
+    + `<p><sub><sup>This readme was generated with the help of the readme generator program at https://github.com/Koldenblue/readme-generator.</sup></sub></p>`;
 
     return readmeText;
 }
