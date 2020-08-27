@@ -1,32 +1,38 @@
 // function to generate markdown for README
 function generateMarkdown(data) {
   // First replace the spaces in the license name with '%20' for use in the url
-  let licenseForURL = data.license;
-  licenseForURL = removeSpaces(licenseForURL);
+  let licenseForURL = removeSpaces(data.license);
   let badgeURL = `![image](https://img.shields.io/badge/license-${licenseForURL}-green)`;
 
   // Generate the actual markdown:
-  return "# " + data.title + "\n\n"
+  let readmeText = "";
+  let chapterNum = 1;
+
+  readmeText += "# " + data.title + "\n\n"
     + `${badgeURL}\n\n`
     + "## Table of Contents\n"
-    + `\n1. <a href="#description">Description</a>`
-    + `\n2. <a href="#installation">Installation</a>`
-    + `\n3. <a href="#usage">Usage</a>`
-    + `\n4. <a href="#contributions">Contributions</a>`
-    + `\n5. <a href="#license">License</a>`
-    + `\n6. <a href="#test">Tests</a>`
-    + `\n7. <a href="#questions">Issues and Questions</a>\n`
+  // Generate table of contents dynamically - if a section is blank, don't include it.
+  data.description !== "" ? readmeText += `\n${chapterNum++}. <a href="#description">Description</a>` : null;
+  data.installation !== "" ? readmeText += `\n${chapterNum++}. <a href="#installation">Installation</a>` : null;
+  data.usage !== "" ? readmeText += `\n${chapterNum++}. <a href="#usage">Usage</a>` : null;
+  data.contributions !== "" ? readmeText += `\n${chapterNum++}. <a href="#contributions">Contributions</a>` : null;
+  readmeText += `\n${chapterNum++}. <a href="#license">License</a>`;
+  data.test !== "" ? readmeText += `\n${chapterNum++}. <a href="#test">Tests</a>` : null;
+  readmeText += `\n${chapterNum}. <a href="#questions">Issues and Questions</a>\n`
 
-    + "<h3 id='description'>Description</h3>\n" + data.description + "\n\n"
-    + "<h3 id='installation'>Installation</h3>\n" + data.installation + "\n\n"
-    + "<h3 id='usage'>Usage</h3>\n" + data.usage + "\n\n"
-    + "<h3 id='contributions'>Contributions</h3>\n" + data.contributions + "\n\n"
-    + `<h3 id='license'>License</h3>\n` + `This project is licensed under the ${data.license}.\n\n`
-    + "<h3 id='test'>Tests</h3>\n" + data.test + "\n\n"
-    + "<h3 id='questions'>Issues and Questions</h3>\n"
+  // Next generate the main sections.
+  data.description !== "" ? readmeText += "<h3 id='description'>Description</h3>\n" + data.description + "\n\n" : null;
+  data.installation !== "" ? readmeText += "<h3 id='installation'>Installation</h3>\n" + data.installation + "\n\n" : null;
+  data.usage !== "" ? readmeText += "<h3 id='usage'>Usage</h3>\n" + data.usage + "\n\n" : null;
+  data.contributions !== "" ? readmeText += "<h3 id='contributions'>Contributions</h3>\n" + data.contributions + "\n\n" : null;
+  readmeText += `<h3 id='license'>License</h3>\n` + `This project is licensed under the ${data.license}.\n\n`;
+  data.test !== "" ? readmeText += "<h3 id='test'>Tests</h3>\n" + data.test + "\n\n" : null;
+  readmeText += "<h3 id='questions'>Issues and Questions</h3>\n"
     + `Issues and questions can be emailed to ${data.email}. `
     + `The author's GitHub profile may be found at https://github.com/${data.username}.`
-    + `<sub><sup>This readme was generated with the help of the readme generator program at https://github.com/Koldenblue/readme-generator.</sup></sub>`;
+    + `<p><sub><sup>This readme was generated with the help of the readme generator program at https://github.com/Koldenblue/readme-generator.</sup></sub></p>`;
+
+    return readmeText;
 }
 
 module.exports = {

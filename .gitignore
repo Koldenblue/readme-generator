@@ -3,6 +3,8 @@ test/**
 .DS_Store/
 async-error-notes.js
 .vs/**
+dev-test-readme.md
+other-test-readme.md
 
 # Logs
 logs

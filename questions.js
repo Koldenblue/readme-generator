@@ -11,7 +11,7 @@ const questions = [
         name: "title"
     },
     {
-        message: "What is the project description?",
+        message: "What is the project description? Sections may be skipped. For each section, type in a space if you would like to include that section as a blank section.",
         name: "description"
     },
     {

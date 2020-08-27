@@ -2,21 +2,22 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const markdown = require("./generateMarkdown.js");
 const questions = require("./questions");
-
-
-/** Error checking function for asynchronous callbacks */
-function checkError(error) {
-    if (error) {
-        return console.log(error + " was the asynchronous callback error");
-    }
-    return console.log("success");
-}
+const path = require("path");
 
 
 /** function to write README file */
 function writeToFile(fileName, data) {
     let readmeString = markdown.generateMarkdown(data);
-    fs.writeFile(fileName, readmeString, error => checkError(error));
+
+    fs.writeFile(path.join(__dirname, "/output", fileName), readmeString, function(error) {
+        if (error && error.code === "ENOENT") {
+            // if the output folder does not exist, create it and try writing again
+            fs.mkdir(path.join(__dirname, "/output"), err => {
+                if (err) throw err;
+                fs.writeFile(path.join(__dirname, "/output", fileName), readmeString, err => {if (err) throw err});
+            });
+        }
+    });
 }
 
 
