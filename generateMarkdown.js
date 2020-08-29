@@ -19,6 +19,7 @@ function generateMarkdown(data) {
   readmeText += `\n${chapterNum++}. <a href="#license">License</a>`;
   data.test !== "" ? readmeText += `\n${chapterNum++}. <a href="#test">Tests</a>` : null;
   readmeText += `\n${chapterNum}. <a href="#questions">Issues and Questions</a>\n`
+    + "<hr>";
 
   // Next generate the main sections.
   data.description !== "" ? readmeText += "<h3 id='description'>Description</h3>\n" + data.description + "\n\n" : null;

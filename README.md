@@ -11,6 +11,7 @@
 5. <a href="#license">License</a>
 6. <a href="#test">Tests</a>
 7. <a href="#questions">Issues and Questions</a>
+<hr>
 <h3 id='description'>Description</h3>
 A short program that quickly generates a readme based upon user input and a pre-defined template. See https://youtu.be/G-kk2_u-25k for a quick demonstration video.
 See sample-readme.md for a sample readme. This readme was also generated using this program.
