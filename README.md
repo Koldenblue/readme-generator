@@ -22,7 +22,7 @@ See sample-readme.md for a sample readme. This readme was also generated using t
 Make sure that node.js is installed first. Navigate to the program folder in the terminal. Then, run "npm install" to install dependencies - in this case, inquirer.
 
 <h3 id='usage'>Usage</h3>
-In the terminal, enter "node index.js" to run the program. Simply answer the prompts. The readme file will then be written to a file in a folder entitled "output", located in the same directory as the program, index.js. If the output folder does not yet exist, it will be created. Use the editor of your choice to further customize the readme as desired. Be mindful that the program will overwrite current readmes in the "output" folder, if the readme files have the same name! Keeping this in mind, remember to relocate the newly output readme to the directory of your choice.
+In the terminal, enter "node index.js" to run the program. Simply answer the prompts. The readme file, written in markdown format, will then be created in a folder entitled "output". The output folder will be located in the same directory as the program, index.js. If the output folder does not yet exist, it will be created. Use the editor of your choice to further customize the readme as desired. Be mindful that the program will overwrite current readmes in the "output" folder, if the readme files have the same name! Keeping this in mind, remember to relocate the newly output readme to the directory of your choice.
 
 <h3 id='contributions'>Contributions</h3>
 Contact the author through GitHub or email with suggestions and comments.
