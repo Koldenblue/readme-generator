@@ -5,6 +5,7 @@ async-error-notes.js
 .vs/**
 dev-test-readme.md
 other-test-readme.md
+output/*
 
 # Logs
 logs

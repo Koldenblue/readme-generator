@@ -54,11 +54,3 @@ function removeSpaces(str) {
       }
   return str;
 }
-
-
-// Alternate syntax for exporting:
-/*
-export default {
-  generateMarkdown
-};
-*/
