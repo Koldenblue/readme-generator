@@ -13,16 +13,16 @@
 7. <a href="#questions">Issues and Questions</a>
 <hr>
 <h3 id='description'>Description</h3>
-A short program that quickly generates a readme based upon user input and a pre-defined template. See https://youtu.be/G-kk2_u-25k for a quick demonstration video.
+Quickly generates a readme based upon user input and a pre-defined template. The template includes a table of contents with linked sections and a license badge. See https://youtu.be/G-kk2_u-25k for a quick demonstration video.
 See sample-readme.md for a sample readme. This readme was also generated using this program.
 
 ![image](https://user-images.githubusercontent.com/64618290/90838156-f81b3e80-e308-11ea-9744-caac9d30ef29.png)
 
 <h3 id='installation'>Installation</h3>
-Make sure that node.js is installed first. In the terminal, run "npm install" to install dependencies - in this case, inquirer.
+Make sure that node.js is installed first. Navigate to the program folder in the terminal. Then, run "npm install" to install dependencies - in this case, inquirer.
 
 <h3 id='usage'>Usage</h3>
-In the terminal, enter "node index.js" to run the program.
+In the terminal, enter "node index.js" to run the program. Simply answer the prompts. The readme file will then be written to a file in a folder entitled "output", located in the same directory as this program. Use the editor of your choice to further customize the readme as desired.
 
 <h3 id='contributions'>Contributions</h3>
 Contact the author through GitHub or email with suggestions and comments.
