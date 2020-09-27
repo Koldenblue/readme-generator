@@ -9,14 +9,14 @@ function generateMarkdown(data) {
   let chapterNum = 1;
 
   readmeText += "# " + data.title + "\n\n"
-    + `${badgeURL}\n\n`
-    + "## Table of Contents\n"
+  data.license !== "None" ? readmeText += `${badgeURL}\n\n` : null;
+  readmeText += "## Table of Contents\n";
   // Generate table of contents dynamically - if a section is blank, don't include it.
   data.description !== "" ? readmeText += `\n${chapterNum++}. <a href="#description">Description</a>` : null;
   data.installation !== "" ? readmeText += `\n${chapterNum++}. <a href="#installation">Installation</a>` : null;
   data.usage !== "" ? readmeText += `\n${chapterNum++}. <a href="#usage">Usage</a>` : null;
   data.contributions !== "" ? readmeText += `\n${chapterNum++}. <a href="#contributions">Contributions</a>` : null;
-  readmeText += `\n${chapterNum++}. <a href="#license">License</a>`;
+  data.license !== "None" ? readmeText += `\n${chapterNum++}. <a href="#license">License</a>` : null;
   data.test !== "" ? readmeText += `\n${chapterNum++}. <a href="#test">Tests</a>` : null;
   readmeText += `\n${chapterNum}. <a href="#questions">Issues and Questions</a>\n`
     + "<hr>";
@@ -26,7 +26,7 @@ function generateMarkdown(data) {
   data.installation !== "" ? readmeText += "<h3 id='installation'>Installation</h3>\n" + data.installation + "\n\n" : null;
   data.usage !== "" ? readmeText += "<h3 id='usage'>Usage</h3>\n" + data.usage + "\n\n" : null;
   data.contributions !== "" ? readmeText += "<h3 id='contributions'>Contributions</h3>\n" + data.contributions + "\n\n" : null;
-  readmeText += `<h3 id='license'>License</h3>\n` + `This project is licensed under the ${data.license}.\n\n`;
+  data.license !== "None" ? readmeText += `<h3 id='license'>License</h3>\n` + `This project is licensed under the ${data.license}.\n\n` : null;
   data.test !== "" ? readmeText += "<h3 id='test'>Tests</h3>\n" + data.test + "\n\n" : null;
   readmeText += "<h3 id='questions'>Issues and Questions</h3>\n"
     + `Issues and questions can be emailed to ${data.email}. `
