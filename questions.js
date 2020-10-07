@@ -32,7 +32,7 @@ const questions = [
             + " a GitHub repository by choosing 'Create New File' and naming the file 'License'.",
         name: "license",
         // These are most common. Other licenses include "Mozilla Public License", "ISC","GNU LGPLv3", "GNU AGPLv3", etc.
-        choices: ["MIT License", "None", "Apache License 2.0", "GNU GPLv3 License"]
+        choices: ["MIT License", "Apache License 2.0", "GNU GPLv3 License", "None"]
     },
     {
         message: "How can the program be tested?",
