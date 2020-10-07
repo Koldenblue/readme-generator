@@ -18,8 +18,8 @@ function generateMarkdown(data) {
   data.contributions !== "" ? readmeText += `\n${chapterNum++}. <a href="#contributions">Contributions</a>` : null;
   data.license !== "None" ? readmeText += `\n${chapterNum++}. <a href="#license">License</a>` : null;
   data.test !== "" ? readmeText += `\n${chapterNum++}. <a href="#test">Tests</a>` : null;
-  readmeText += `\n${chapterNum}. <a href="#questions">Issues and Questions</a>\n`
-    + "<hr>";
+  (data.username !== '' && data.email !== '') ? readmeText += `\n${chapterNum}. <a href="#questions">Issues and Questions</a>\n` : null;
+  readmeText += "<hr>";
 
   // Next generate the main sections.
   data.description !== "" ? readmeText += "<h3 id='description'>Description</h3>\n" + data.description + "\n\n" : null;
@@ -28,10 +28,10 @@ function generateMarkdown(data) {
   data.contributions !== "" ? readmeText += "<h3 id='contributions'>Contributions</h3>\n" + data.contributions + "\n\n" : null;
   data.license !== "None" ? readmeText += `<h3 id='license'>License</h3>\n` + `This project is licensed under the ${data.license}.\n\n` : null;
   data.test !== "" ? readmeText += "<h3 id='test'>Tests</h3>\n" + data.test + "\n\n" : null;
-  readmeText += "<h3 id='questions'>Issues and Questions</h3>\n"
-    + `Issues and questions can be emailed to ${data.email}. `
-    + `The author's GitHub profile may be found at https://github.com/${data.username}.`
-    + `<p><sub><sup>This readme was generated with the help of the readme generator program at https://github.com/Koldenblue/readme-generator.</sup></sub></p>`;
+  (data.username !== '' && data.email !== '') ? readmeText += "<h3 id='questions'>Issues and Questions</h3>\n" : null;
+  data.email !== '' ? readmeText += `Issues and questions can be emailed to ${data.email}. ` : null;
+  data.username !== '' ? readmeText += `The author's GitHub profile may be found at https://github.com/${data.username}.` : null;
+  readmeText += `<p><sub><sup>This readme was generated with the help of the readme generator program at https://github.com/Koldenblue/readme-generator.</sup></sub></p>`;
 
     return readmeText;
 }
