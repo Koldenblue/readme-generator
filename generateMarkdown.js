@@ -29,7 +29,7 @@ function generateMarkdown(data) {
   data.license !== "None" ? readmeText += `<h3 id='license'>License</h3>\n` + `This project is licensed under the ${data.license}.\n\n` : null;
   data.test !== "" ? readmeText += "<h3 id='test'>Tests</h3>\n" + data.test + "\n\n" : null;
   (data.username !== '' && data.email !== '') ? readmeText += "<h3 id='questions'>Issues and Questions</h3>\n" : null;
-  data.email !== '' ? readmeText += `Issues and questions can be emailed to ${data.email}. ` : null;
+  data.email !== '' ? readmeText += `Issues and questions may be emailed to ${data.email}. ` : null;
   data.username !== '' ? readmeText += `The author's GitHub profile may be found at https://github.com/${data.username}.` : null;
   readmeText += `<p><sub><sup>This readme was generated with the help of the readme generator program at https://github.com/Koldenblue/readme-generator.</sup></sub></p>`;
 
