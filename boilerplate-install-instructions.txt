@@ -7,3 +7,8 @@ Sass should be installed - see the <a href='https://sass-lang.com/'>Sass website
 Sass may quickly be installed locally in the project directory with 'npm install sass'. However, be sure to check out the <a href='https://sass-lang.com/'>Sass website</a> for more specific instructions.</p>
 
 The website may be run on a local host by cloning this repository, and running '___________' in a Node.js environment. The webpage will be hosted locally on port ____ by default, at localhost:____ in a browser.
+
+<p>The deployed website may be visited at _________.</p> The website may be run on a local host by cloning this repository, navigating to the project directory in a terminal, and using the command 'npm install'. The Node.js environment and Node Package Manager must be installed prior. 
+Sass should also be installed. If not already installed, Sass may quickly be installed locally in the project directory with the command 'npm install sass'. However, be sure to check out the <a href='https://sass-lang.com/'>Sass website</a> for more detailed installation instructions.
+
+Once installed, the website may be run on a local host using the command 'npm run start' in the project directory. The webpage will be hosted locally on port 3000 by default, and may be accessed at localhost:3000 in a browser. <p>If scss files are to be edited, the script 'npm run watch-sass', found in package.json, may be used to automatically update the CSS files. However, the watch-sass script may have to be edited depending on the local machine and sass installation - again, check out the Sass website for details on using the 'sass --watch' command.
