@@ -23,6 +23,10 @@ const questions = [
         name: "usage"
     },
     {
+        message: "What is the code discussion?",
+        name: "code"
+    },
+    {
         message: "How can contributions be made to the program?",
         name: "contributions"
     },

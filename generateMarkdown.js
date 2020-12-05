@@ -15,20 +15,22 @@ function generateMarkdown(data) {
   data.description !== "" ? readmeText += `\n${chapterNum++}. <a href="#description">Description</a>` : null;
   data.installation !== "" ? readmeText += `\n${chapterNum++}. <a href="#installation">Installation</a>` : null;
   data.usage !== "" ? readmeText += `\n${chapterNum++}. <a href="#usage">Usage</a>` : null;
+  data.code !== "" ? readmeText += `\n${chapterNum++}. <a href="#code">Code Discussion</a>` : null;
   data.contributions !== "" ? readmeText += `\n${chapterNum++}. <a href="#contributions">Contributions</a>` : null;
   data.license !== "None" ? readmeText += `\n${chapterNum++}. <a href="#license">License</a>` : null;
   data.test !== "" ? readmeText += `\n${chapterNum++}. <a href="#test">Tests</a>` : null;
-  (data.username !== '' && data.email !== '') ? readmeText += `\n${chapterNum}. <a href="#questions">Issues and Questions</a>\n` : null;
+  (data.username !== '' || data.email !== '') ? readmeText += `\n${chapterNum}. <a href="#questions">Issues and Questions</a>\n` : null;
   readmeText += "<hr>";
 
   // Next generate the main sections.
   data.description !== "" ? readmeText += "<h3 id='description'>Description</h3>\n" + data.description + "\n\n" : null;
   data.installation !== "" ? readmeText += "<h3 id='installation'>Installation</h3>\n" + data.installation + "\n\n" : null;
   data.usage !== "" ? readmeText += "<h3 id='usage'>Usage</h3>\n" + data.usage + "\n\n" : null;
+  data.code !== "" ? readmeText += "<h3 id='code'>Code Discussion</h3>\n" + data.code + "\n\n" : null;
   data.contributions !== "" ? readmeText += "<h3 id='contributions'>Contributions</h3>\n" + data.contributions + "\n\n" : null;
   data.license !== "None" ? readmeText += `<h3 id='license'>License</h3>\n` + `This project is licensed under the ${data.license}.\n\n` : null;
   data.test !== "" ? readmeText += "<h3 id='test'>Tests</h3>\n" + data.test + "\n\n" : null;
-  (data.username !== '' && data.email !== '') ? readmeText += "<h3 id='questions'>Issues and Questions</h3>\n" : null;
+  (data.username !== '' || data.email !== '') ? readmeText += "<h3 id='questions'>Issues and Questions</h3>\n" : null;
   data.email !== '' ? readmeText += `Issues and questions may be emailed to ${data.email}. ` : null;
   data.username !== '' ? readmeText += `The author's GitHub profile may be found at https://github.com/${data.username}.` : null;
   readmeText += `<p><sub><sup>This readme was generated with the help of the readme generator program at https://github.com/Koldenblue/readme-generator.</sup></sub></p>`;

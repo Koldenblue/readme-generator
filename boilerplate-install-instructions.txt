@@ -1,0 +1,9 @@
+<p>The website may be viewed <a href=''>here</a>.
+
+Run 'npm install' in the project directory to install files listed in package.json.
+
+Sass should be installed - see the <a href='https://sass-lang.com/'>Sass website</a> for installation details.
+
+Sass may quickly be installed locally in the project directory with 'npm install sass'. However, be sure to check out the <a href='https://sass-lang.com/'>Sass website</a> for more specific instructions.</p>
+
+The website may be run on a local host by cloning this repository, and running '___________' in a Node.js environment. The webpage will be hosted locally on port ____ by default, at localhost:____ in a browser.
